@@ -26,8 +26,8 @@ script:
   - bundle exec rake
 before_script:
   - cp spec/dummy/config/database.yml.travis spec/dummy/config/database.yml
-  - mysql -e 'create database odania_core_test'
-  - psql -c 'create database odania_core_test' -U postgres
+  - mysql -e 'create database odania_timeline_test'
+  - psql -c 'create database odania_timeline_test' -U postgres
 addons:
   code_climate:
     repo_token: e2f5e58d6bf4a9dae6cb2c5de527a50ace542e3a594ba9050e62466a2effee65

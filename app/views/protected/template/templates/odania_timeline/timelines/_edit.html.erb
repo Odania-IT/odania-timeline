@@ -1,0 +1,62 @@
+<form class="form-horizontal" role="form">
+	<div class="row-fluid">
+		<div class="col-md-9">
+			<h1>Editing Timeline</h1>
+
+			<div class="form-group">
+				<label class="col-sm-2 control-label" for="site_name">Title</label>
+
+				<div class="col-sm-10">
+					<input type="text" id="site_name" data-ng-model="timeline.title" placeholder="Title" class="form-control"/>
+					<span data-ng-if="errors.title" style="color: red;">{{ printErrors(errors.title) }}</span>
+				</div>
+			</div>
+
+			<div data-ng-repeat="timelineContent in timeline.timeline_contents">
+				<fieldset>
+					<legend>Timeline Content {{ $index + 1 }}</legend>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Date</label>
+
+						<div class="col-sm-10">
+							<input type="date" data-ng-model="timeline.timeline_contents[$index].timeline_date" placeholder="Release date" class="form-control"/>
+							<span data-ng-if="errors.timeline_contents[$index].timeline_date" style="color: red;">{{ printErrors(errors.timeline_contents[$index].timeline_date) }}</span>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="site_name">Title</label>
+
+						<div class="col-sm-10">
+							<input type="text" id="site_name" data-ng-model="timeline.timeline_contents[$index].title" placeholder="Title" class="form-control"/>
+							<span data-ng-if="errors.timeline_contents[$index].title" style="color: red;">{{ printErrors(errors.timeline_contents[$index].title) }}</span>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Body</label>
+
+						<div class="col-sm-10">
+							<div data-text-angular data-ng-model="timeline.timeline_contents[$index].body" data-placeholder="<%= t('odania_timeline.model.body.placeholder') %>"></div>
+							<span data-ng-if="errors.timeline_contents[$index].body" style="color: red;">{{ printErrors(errors.timeline_contents[$index].body) }}</span>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+
+		</div>
+		<div class="col-md-3">
+			<span data-ng-if="errors" style="color: red;"><%= t('general.Please correct the errors') %></span>
+
+			<div class="well">
+				<h3><%= t('odania_timeline.create.title') %></h3>
+
+				<button data-ng-click="saveTimeline()" class="btn btn-primary"><%= t('general.save') %></button>
+
+				<br/>
+				<button data-ng-click="addEntryToTimeline()" class="btn btn-primary"><%= t('odania_timeline.create.add_entry_to_timeline') %></button>
+			</div>
+		</div>
+	</div>
+</form>

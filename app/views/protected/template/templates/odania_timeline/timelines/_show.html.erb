@@ -1,0 +1,17 @@
+<p>
+	<strong>Title:</strong>
+	{{ timeline.title }}
+</p>
+
+<p>
+	<strong>Language:</strong>
+	{{ timeline.language_id }}
+</p>
+
+<div data-ng-repeat="timelineContent in timeline.timeline_contents">
+	<hr/>
+	<strong>{{ timelineContent.timeline_date }}: {{ timelineContent.title }}</strong>
+	<div data-ng-html="{{ timelineContent.body }}"></div>
+</div>
+
+<a data-ng-href="#/odania_timeline/timelines/{{ timeline.id }}/edit">Edit</a> | <a data-ng-href="#/odania_timeline/timelines">Back</a>

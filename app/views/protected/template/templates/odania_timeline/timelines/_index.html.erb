@@ -1,0 +1,29 @@
+<h1>Timelines</h1>
+
+<table class="table">
+	<thead>
+	<tr>
+		<th>Title</th>
+		<th>Entries</th>
+		<th>Language</th>
+		<th></th>
+		<th></th>
+		<th></th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<tr data-ng-repeat="timeline in timelines">
+		<td>{{ timeline.title }}</td>
+		<td>{{ timeline.timeline_contents.length }}</td>
+		<td>{{ getLanguage(timeline.language_id).iso_639_1 }}</td>
+		<td><a data-ng-href="#/odania_timeline/timelines/{{ timeline.id }}">Show</a></td>
+		<td><a data-ng-href="#/odania_timeline/timelines/{{ timeline.id }}/edit">Edit</a></td>
+		<td><a data-ng-confirm-click="deleteTimeline(timeline.id)" data-ng-confirm-message="Are you sure?">Destroy</a></td>
+	</tr>
+	</tbody>
+</table>
+
+<br/>
+
+<a data-ng-href="#/odania_timeline/timelines/new">New Timeline</a>

@@ -1,0 +1,8 @@
+de:
+  odania_timeline:
+    create:
+      title: 'Timeline'
+      add_entry_to_timeline: 'Eintrag zur Timeline hinzufügen'
+    model:
+      body:
+        placeholder: 'Eintragstext'
