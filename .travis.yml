@@ -1,0 +1,33 @@
+language: ruby
+bundler_args: --without development
+rvm:
+  - 1.9.3
+  - 2.0
+  - 2.1
+  - 2.2
+  - jruby-19mode
+  - jruby-head
+  - ruby-head
+  - ree
+env:
+  - DB=sqlite
+  - DB=mysql
+  - DB=postgresql
+matrix:
+  allow_failures:
+    - rvm: jruby-19mode
+    - rvm: ree
+    - rvm: ruby-head
+    - rvm: jruby-head
+notifications:
+  email: true
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake
+before_script:
+  - cp spec/dummy/config/database.yml.travis spec/dummy/config/database.yml
+  - mysql -e 'create database odania_core_test'
+  - psql -c 'create database odania_core_test' -U postgres
+addons:
+  code_climate:
+    repo_token: e2f5e58d6bf4a9dae6cb2c5de527a50ace542e3a594ba9050e62466a2effee65
