@@ -46,6 +46,6 @@ class Protected::Api::OdaniaTimeline::TimelinesController < Protected::ApiContro
 	end
 
 	def timeline_params
-		params.require(:timeline).permit(:title, timeline_contents_attributes: [:id, :title, :body, :timeline_date])
+		params.require(:timeline).permit(:title, :is_public, timeline_contents_attributes: [:id, :title, :body, :timeline_date])
 	end
 end

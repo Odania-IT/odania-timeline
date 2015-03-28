@@ -4,6 +4,7 @@
 	<thead>
 	<tr>
 		<th>Title</th>
+		<th>Is Public</th>
 		<th>Entries</th>
 		<th>Language</th>
 		<th></th>
@@ -15,6 +16,7 @@
 	<tbody>
 	<tr data-ng-repeat="timeline in timelines">
 		<td>{{ timeline.title }}</td>
+		<td>{{ timeline.is_public }}</td>
 		<td>{{ timeline.timeline_contents.length }}</td>
 		<td>{{ getLanguage(timeline.language_id).iso_639_1 }}</td>
 		<td><a data-ng-href="#/odania_timeline/timelines/{{ timeline.id }}">Show</a></td>

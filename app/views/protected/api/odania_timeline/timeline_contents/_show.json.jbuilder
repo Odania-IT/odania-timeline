@@ -1,4 +1,4 @@
 json.id timeline_content.id
-json.timeline_date timeline_content.timeline_date
+json.timeline_date date_to_time_since_epoch(timeline_content.timeline_date)
 json.title timeline_content.title
 json.body timeline_content.body

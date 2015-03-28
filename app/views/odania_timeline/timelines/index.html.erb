@@ -1,0 +1,7 @@
+<ul>
+	<% @timelines.each do |timeline| %>
+		<li>
+			<%= link_to timeline.title, odania_timeline_path(id: timeline.to_param, locale: I18n.locale.to_s) %>
+		</li>
+	<% end %>
+</ul>

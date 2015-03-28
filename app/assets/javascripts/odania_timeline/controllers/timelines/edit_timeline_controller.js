@@ -5,6 +5,12 @@ app.controller('OdaniaTimelineEditTimelineController', ['$location', '$scope', '
 	function loadTimeline(id) {
 		OdaniaTimelineTimelineResource.get({id: id}).$promise.then(function (data) {
 			$scope.timeline = data.timeline;
+
+			var contents;
+			for (var i=0 ; i<$scope.timeline.timeline_contents.length ; i++) {
+				contents = $scope.timeline.timeline_contents[i];
+				contents.timeline_date = new Date(parseInt(contents.timeline_date));
+			}
 		});
 	}
 
@@ -20,6 +26,7 @@ app.controller('OdaniaTimelineEditTimelineController', ['$location', '$scope', '
 	$scope.saveTimeline = function () {
 		var data = {
 			'title': $scope.timeline.title,
+			'is_public': $scope.timeline.is_public,
 			'timeline_contents_attributes': $scope.timeline.timeline_contents
 		};
 

@@ -6,4 +6,11 @@ Rails.application.routes.draw do
 			end
 		end
 	end
+
+	scope '/:locale', constraints: {locale: /[a-z][a-z]/} do
+		namespace :odania_timeline do
+			get 'timelines' => 'timelines#index'
+			get 'timelines/:id' => 'timelines#show'
+		end
+	end
 end

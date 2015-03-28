@@ -200,6 +200,7 @@ ActiveRecord::Schema.define(version: 20150327172813) do
     t.integer  "language_id"
     t.integer  "site_id"
     t.string   "title"
+    t.boolean  "is_public"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

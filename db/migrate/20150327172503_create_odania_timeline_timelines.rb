@@ -5,6 +5,7 @@ class CreateOdaniaTimelineTimelines < ActiveRecord::Migration
 			t.references :language, index: true
 			t.references :site, index: true
 			t.string :title
+			t.boolean :is_public
 			t.timestamps null: false
 		end
 		add_foreign_key :odania_timeline_timelines, :odania_sites, column: :site_id
