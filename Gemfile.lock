@@ -26,7 +26,7 @@ GIT
 PATH
   remote: .
   specs:
-    odania_timeline (0.0.2)
+    odania_timeline (0.0.3)
       odania_core
       rails
 

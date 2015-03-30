@@ -5,7 +5,7 @@ require File.expand_path('../dummy/config/environment', __FILE__)
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 Dir[Rails.root.join('../../spec/factories/**/*.rb')].each { |f| require f }
-Dir[Rails.root.join("#{Gem.loaded_specs['odania_core'].full_gem_path}/test/factories/**/*.rb")].each { |f| require f }
+Dir["#{Gem.loaded_specs['odania_core'].full_gem_path}/test/factories/**/*.rb"].each { |f| require f }
 
 require 'codeclimate-test-reporter'
 CodeClimate::TestReporter.start
