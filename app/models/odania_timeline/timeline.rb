@@ -1,5 +1,8 @@
 class OdaniaTimeline::Timeline < ActiveRecord::Base
-	has_many :timeline_contents, class_name: 'OdaniaTimeline::TimelineContent'
+	belongs_to :site, :class_name => 'Odania::Site'
+	belongs_to :language, :class_name => 'Odania::Language'
+	belongs_to :user, :class_name => 'Odania::User'
+	has_many :timeline_contents, class_name: 'OdaniaTimeline::TimelineContent', dependent: :delete_all
 
 	accepts_nested_attributes_for :timeline_contents, allow_destroy: true, reject_if: proc { |attributes| attributes['title'].blank? }
 
