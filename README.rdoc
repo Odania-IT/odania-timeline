@@ -2,6 +2,6 @@
 
 Odania Timeline is aplugin for the Odania Portal. It gives you the possibility to define and display timelines.
 
-Active the plugin "odania_timeline" in the admin tool for a site. Afterwords you can define the data in the protected area.
+Active the plugin "odania_timeline" in the admin tool for a site. Afterwords users can define the data in the protected area.
 
 This project rocks and uses MIT-LICENSE.
