@@ -6,8 +6,8 @@ RSpec.describe Protected::Api::OdaniaTimeline::TimelinesController, type: :contr
 		@request.host = @site.host
 
 		@language = create(:language)
-		create_list(:timeline_with_contents, 25, site: @site, language: @language)
-		@timeline = create(:timeline_with_contents, user: OdaniaTestMock.current_user, site: @site, language: @language)
+		create_list(:timeline, 25, :with_contents, site: @site, language: @language)
+		@timeline = create(:timeline, :with_contents, user: OdaniaTestMock.current_user, site: @site, language: @language)
 	end
 
 	context 'when not logged in' do

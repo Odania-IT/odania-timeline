@@ -6,7 +6,7 @@ FactoryGirl.define do
 		title { FFaker::Company.name }
 		is_public true
 
-		factory :timeline_with_contents do
+		trait :with_contents do
 			# Default value for amount of items
 			transient do
 				amount 2
