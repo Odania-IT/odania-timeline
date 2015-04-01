@@ -1,9 +1,14 @@
 <h2 class="right-line"><%= timeline.title %></h2>
 
 <ul class="timeline-2">
-	<% timeline.timeline_contents.each do |timeline_content| %>
+	<% timeline.timeline_contents.order('from_date DESC').each do |timeline_content| %>
 		<li class="wow fadeInRight">
-			<time class="timeline-time" datetime=""><%= timeline_content.timeline_date %></time>
+			<time class="timeline-time" datetime="">
+				<%=l timeline_content.from_date %>
+				<% unless timeline_content.to_date.nil? %>
+					- <%=l timeline_content.to_date %>
+				<% end %>
+			</time>
 			<i class="timeline-2-point"></i>
 
 			<div class="panel panel-default">

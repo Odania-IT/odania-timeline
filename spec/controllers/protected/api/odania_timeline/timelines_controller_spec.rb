@@ -41,11 +41,11 @@ RSpec.describe Protected::Api::OdaniaTimeline::TimelinesController, type: :contr
 			assert_difference 'OdaniaTimeline::Timeline.count' do
 				assert_difference 'OdaniaTimeline::TimelineContent.count', 5 do
 					post :create, {format: :json, timeline: {title: timeline.title, is_public: false, timeline_contents_attributes: [
-										{title: FFaker::Movie.title, body: FFaker::HTMLIpsum.body, timeline_date: FFaker::Time.date},
-										{title: FFaker::Movie.title, body: FFaker::HTMLIpsum.body, timeline_date: FFaker::Time.date},
-										{title: FFaker::Movie.title, body: FFaker::HTMLIpsum.body, timeline_date: FFaker::Time.date},
-										{title: FFaker::Movie.title, body: FFaker::HTMLIpsum.body, timeline_date: FFaker::Time.date},
-										{title: FFaker::Movie.title, body: FFaker::HTMLIpsum.body, timeline_date: FFaker::Time.date}
+										{title: FFaker::Movie.title, body: FFaker::HTMLIpsum.body, from_date: FFaker::Time.date},
+										{title: FFaker::Movie.title, body: FFaker::HTMLIpsum.body, from_date: FFaker::Time.date},
+										{title: FFaker::Movie.title, body: FFaker::HTMLIpsum.body, from_date: FFaker::Time.date},
+										{title: FFaker::Movie.title, body: FFaker::HTMLIpsum.body, from_date: FFaker::Time.date},
+										{title: FFaker::Movie.title, body: FFaker::HTMLIpsum.body, from_date: FFaker::Time.date}
 									]}}
 				end
 			end

@@ -9,7 +9,8 @@ app.controller('OdaniaTimelineEditTimelineController', ['$location', '$scope', '
 			var contents;
 			for (var i=0 ; i<$scope.timeline.timeline_contents.length ; i++) {
 				contents = $scope.timeline.timeline_contents[i];
-				contents.timeline_date = new Date(parseInt(contents.timeline_date));
+				contents.from_date = new Date(parseInt(contents.from_date));
+				contents.to_date = new Date(parseInt(contents.to_date));
 			}
 		});
 	}

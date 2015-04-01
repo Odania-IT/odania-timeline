@@ -10,7 +10,7 @@
 
 <div data-ng-repeat="timelineContent in timeline.timeline_contents">
 	<hr/>
-	<strong>{{ timelineContent.timeline_date }}: {{ timelineContent.title }}</strong>
+	<strong>{{ timelineContent.from_date }} - {{ timelineContent.to_date }}: {{ timelineContent.title }}</strong>
 	<div data-ng-html="{{ timelineContent.body }}"></div>
 </div>
 
