@@ -1,5 +1,5 @@
 class OdaniaTimeline::TimelinesController < ApplicationController
-	before_action :valid_site!
+	before_action :valid_site!, :valid_menu!
 
 	def index
 		@timelines = OdaniaTimeline::Timeline.where(is_public: true).order('updated_at DESC')
