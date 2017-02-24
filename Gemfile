@@ -20,7 +20,7 @@ group :development, :test do
 	gem 'ffaker'
 	gem 'assert_difference'
 
-	gem 'odania_core', git: 'https://github.com/Odania-IT/odania-core.git'
+	gem 'odania_core', git: 'https://github.com/Odania-IT/odania-core.git', branch: 'develop'
 
 	# Necessary for travis
 	platforms :jruby do
