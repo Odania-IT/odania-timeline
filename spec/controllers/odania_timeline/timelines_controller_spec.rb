@@ -12,14 +12,14 @@ RSpec.describe OdaniaTimeline::TimelinesController, type: :controller do
 
 	context 'public display' do
 		it 'should display public timelines' do
-			get :index, {locale: @language.iso_639_1}
+			get :index, params: {locale: @language.iso_639_1}
 
 			expect(response).to be_success
 			expect(response).to render_template('odania_timeline/timelines/index')
 		end
 
 		it 'should display timeline' do
-			get :show, {id: @timeline.id, locale: @language.iso_639_1}
+			get :show, params: {id: @timeline.id, locale: @language.iso_639_1}
 
 			expect(response).to be_success
 			expect(response).to render_template('odania_timeline/timelines/show')

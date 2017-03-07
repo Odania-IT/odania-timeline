@@ -13,23 +13,23 @@ RSpec.describe Protected::Api::OdaniaTimeline::TimelinesController, type: :contr
 	context 'when not logged in' do
 		it 'should give unauthorized' do
 			OdaniaTestMock.signed_in = false
-			get :index, {format: :json}
+			get :index, params: {format: :json}
 			OdaniaTestMock.signed_in = true
 
-			expect(response.response_code).to be(302)
+			expect(response.response_code).to be(401)
 		end
 	end
 
 	context 'when logged in' do
 		it 'should list timelines' do
-			get :index, {format: :json}
+			get :index, params: {format: :json}
 
 			expect(response).to be_success
 			expect(response).to render_template('protected/api/odania_timeline/timelines/index')
 		end
 
 		it 'should return timeline' do
-			get :show, {id: @timeline, format: :json}
+			get :show, params: {id: @timeline, format: :json}
 
 			expect(response).to be_success
 			expect(response).to render_template('protected/api/odania_timeline/timelines/show')
@@ -40,7 +40,7 @@ RSpec.describe Protected::Api::OdaniaTimeline::TimelinesController, type: :contr
 
 			assert_difference 'OdaniaTimeline::Timeline.count' do
 				assert_difference 'OdaniaTimeline::TimelineContent.count', 5 do
-					post :create, {format: :json, timeline: {title: timeline.title, is_public: false, timeline_contents_attributes: [
+					post :create, params: {format: :json, timeline: {title: timeline.title, is_public: false, timeline_contents_attributes: [
 										{title: FFaker::Movie.title, body: FFaker::HTMLIpsum.body, from_date: FFaker::Time.date},
 										{title: FFaker::Movie.title, body: FFaker::HTMLIpsum.body, from_date: FFaker::Time.date},
 										{title: FFaker::Movie.title, body: FFaker::HTMLIpsum.body, from_date: FFaker::Time.date},
@@ -57,7 +57,7 @@ RSpec.describe Protected::Api::OdaniaTimeline::TimelinesController, type: :contr
 		it 'should delete timeline and contents' do
 			assert_difference 'OdaniaTimeline::Timeline.count', -1 do
 				assert_difference 'OdaniaTimeline::TimelineContent.count', -@timeline.timeline_contents.count do
-					delete :destroy, {id: @timeline, format: :json}
+					delete :destroy, params: {id: @timeline, format: :json}
 				end
 			end
 		end

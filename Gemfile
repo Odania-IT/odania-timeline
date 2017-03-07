@@ -35,6 +35,8 @@ group :development, :test do
 		gem 'mysql2'
 		gem 'pg'
 	end
+
+	gem 'rails-controller-testing'
 end
 
 gem 'codeclimate-test-reporter', group: :test, require: nil
